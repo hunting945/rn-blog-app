@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import IndexScreen from './src/screens/IndexScreen';
+import BlogContext from './src/context/BlogContext';
 
 const navigator = createStackNavigator(
   {
@@ -19,5 +20,17 @@ const navigator = createStackNavigator(
 const App = createAppContainer(navigator);
 
 export default () => {
-  return <App />;
+  const [blogPosts, setBlogPosts] = useState([]);
+
+  const addBlogPost = () => {
+    setBlogPosts([
+      ...blogPosts, 
+      {title: `Blog Post #${blogPosts.length + 1}`}
+    ]);
+  };
+  return (
+    <BlogContext.Provider value={{data: blogPosts, addBlogPost}}>
+      <App />
+    </BlogContext.Provider>
+  );
 };
