@@ -1,4 +1,3 @@
-
 import createDataContext from './createDataContext';
 
 const blogReducer = (state, action) => {
@@ -10,7 +9,8 @@ const blogReducer = (state, action) => {
         ...state,
         {
           id: Math.floor(Math.random() * 99999),
-          title: `Blog Post #${state.length + 1}`
+          title: action.payload.title,
+          content: action.payload.content
         }
       ];
     default:
@@ -20,14 +20,15 @@ const blogReducer = (state, action) => {
 
 
 const addBlogPost = dispatch => {
-  return () => {
-    dispatch({ type: 'add_blogpost' });
+  return (title, content, callback) => {
+    dispatch({ type: 'add_blogpost', payload: {title, content} });
+    callback();
   };
 };
 
 const deleteBlogPost = dispatch => {
   return id => {
-    dispatch({ type: 'delete_blogpost', payload: id});
+    dispatch({ type: 'delete_blogpost', payload: id });
   };
 };
 
