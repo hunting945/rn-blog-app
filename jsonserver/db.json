@@ -1,10 +1,24 @@
 {
-    "blogposts": [
-        {
-            "id": 1,
-            "title": "POST_1",
-            "content": "CONTENT_1"
-        }
-    ]
-  }
-  
+  "blogposts": [
+    {
+      "id": 1,
+      "title": "POST_1",
+      "content": "CONTENT_1"
+    },
+    {
+      "title": "POST_2",
+      "content": "Sfwefwef",
+      "id": 2
+    },
+    {
+      "title": "Yjyuyuk",
+      "content": "Yukyukyuk",
+      "id": 3
+    },
+    {
+      "title": "Tyyty",
+      "content": "Rtyrtytyr",
+      "id": 4
+    }
+  ]
+}
